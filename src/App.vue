@@ -32,13 +32,13 @@
               <router-link to="search-trip" class="nav-link" active-class="active">Search Trip</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Select Seat</a>
+              <router-link to="seat-selection" class="nav-link" active-class="active">Select Seat</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Passenger Info</a>
+              <router-link to="passenger-info" class="nav-link" active-class="active">Passenger Info</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Payment Info</a>
+              <router-link to="payment-info" class="nav-link" active-class="active">Payment Info</router-link>
             </li>
           </ul>
         </div>

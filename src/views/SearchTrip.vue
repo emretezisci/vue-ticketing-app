@@ -1,6 +1,10 @@
 <template>
   <div class="container">
     <h2>Trip Planner</h2>
+    <h5 style="opacity: 60%;">Sample Trip from DB</h5>
+    <p style="opacity: 60%;">From "Lisbon" to "Porto" at "25 April 2020"</p>
+    <p style="opacity: 60%;">From "Lisbon" to "Madrid" at "25 April 2020"</p>
+
     <form @submit.prevent="search_trip">
       <div class="form-row align-items-center">
         <div class="col-sm-2">
@@ -67,7 +71,7 @@ export default {
       trips: [],
       available_trips: [],
       isLoading: false,
-      message: '',
+      message: ""
     };
   },
   created() {
@@ -83,8 +87,8 @@ export default {
           x.to_location === this.to_location &&
           this.getDate(x.departure_date) === this.getDate(this.departure_date)
       );
-      if(this.available_trips.length == 0) {
-        this.message = "No trips available"
+      if (this.available_trips.length == 0) {
+        this.message = "No trips available";
       }
       this.isLoading = false;
     },
@@ -107,7 +111,7 @@ export default {
       return time;
     },
     chooseTrip(trip_id) {
-      this.$router.push({name: 'seat-selection', params: {trip_id}})
+      this.$router.push({ name: "seat-selection", params: { trip_id } });
     }
   }
 };

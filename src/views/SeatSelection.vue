@@ -44,13 +44,15 @@
 
 <script>
 import db from "../assets/db.json";
+import { GlobalData } from "../main";
 export default {
   data() {
     return {
       trips: [],
       seats: [],
       found_seats: [],
-      choosen_seats: []
+      choosen_seats: [],
+      choosen_trip: {}
     };
   },
   created() {
@@ -63,6 +65,8 @@ export default {
       let trip_id;
       if (this.$route.params.trip_id)
         trip_id = parseInt(this.$route.params.trip_id);
+      else if (GlobalData.choosen_trip !== null && GlobalData.choosen_trip.id)
+        trip_id = parseInt(GlobalData.choosen_trip.id);
       else this.$router.push({ name: "search-trip" });
 
       this.choosen_trip = this.trips.find(t => t.id === trip_id);
@@ -82,7 +86,11 @@ export default {
         this.choosen_seats.push(seat);
       }
     },
-    enter_passenger_info() {}
+    enter_passenger_info() {
+      GlobalData.choosen_trip = this.choosen_trip;
+      GlobalData.choosen_seats = this.choosen_seats;
+      this.$router.push({ name: "passenger-info" });
+    }
   }
 };
 </script>
